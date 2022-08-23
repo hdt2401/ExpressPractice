@@ -2,15 +2,19 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --inspect index.js",
+    "watch":"node-sass --watch src/resources/sass/ --output src/public/css/",
+    "start": "nodemon --inspect src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "morgan": "^1.10.0",
+    "node-sass": "^7.0.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
