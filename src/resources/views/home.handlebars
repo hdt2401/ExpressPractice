@@ -1,1 +1,15 @@
 <h1 class="text-title">Home</h1>
+<div class="row">
+  {{#each phones}}
+    <div class="col-4">
+      <div class="card">
+        <p class="card-header">
+          {{this.name}}
+        </p>
+        <div class="card-body">
+          {{this.description}}
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
