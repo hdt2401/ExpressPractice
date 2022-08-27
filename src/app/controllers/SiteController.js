@@ -1,5 +1,5 @@
 const Phone = require("../models/Phone");
-const { mutipleMongooseToArray } = require("../../util/mongoose");
+const { mutipleMongooseToArray, singleMongooseToArray } = require("../../util/mongoose");
 class SiteController {
   // [GET] home page
   index(req, res, next) {
@@ -13,6 +13,19 @@ class SiteController {
         res.render("home", { phones: mutipleMongooseToArray(phones) });
       })
       .catch(next);
+  }
+
+  detail(req, res, next) {
+    const query = Phone.where({ name: req.params.name });
+
+    query.findOne(function (err, phone) {
+      if (err) return handleError(err);
+      if (phone) {
+       res.render("detailPhone", {phone: singleMongooseToArray(phone)})
+       console.log(typeof phone)
+      }
+    });
+    // Phone.findOne()
   }
 
   // [GET] /search

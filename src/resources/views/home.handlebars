@@ -1,8 +1,11 @@
 <h1 class="text-title">Home</h1>
 <div class="row">
   {{#each phones}}
-    <div class="col-4">
+    <div class="col-3">
       <div class="card">
+        <a href="/{{this.name}}" class="card-img mb-3 p-3">
+          <img src={{this.image}} class="card-img-top" alt={{this.name}}>
+        </a>
         <p class="card-header">
           {{this.name}}
         </p>
