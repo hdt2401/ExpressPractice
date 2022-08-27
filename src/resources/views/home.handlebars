@@ -1,18 +1,32 @@
 <h1 class="text-title">Home</h1>
 <div class="row">
-  {{#each phones}}
-    <div class="col-3">
-      <div class="card">
-        <a href="/{{this.name}}" class="card-img mb-3 p-3">
-          <img src={{this.image}} class="card-img-top" alt={{this.name}}>
-        </a>
-        <p class="card-header">
-          {{this.name}}
-        </p>
-        <div class="card-body">
-          {{this.description}}
+  <div class="col-3">
+    <ul>
+      <li>
+        <a href="/create">create</a>
+      </li>
+      <li>
+        <a href="/search">search</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-9">
+    <div class="row">
+      {{#each phones}}
+        <div class="col-3">
+          <div class="card">
+            <a href="/{{this.name}}" class="card-img mb-3 p-3">
+              <img src={{this.image}} class="card-img-top" alt={{this.name}} />
+            </a>
+            <p class="card-header">
+              {{this.name}}
+            </p>
+            <div class="card-body">
+              {{this.description}}
+            </div>
+          </div>
         </div>
-      </div>
+      {{/each}}
     </div>
-  {{/each}}
+  </div>
 </div>
