@@ -4,12 +4,16 @@ const morgan = require("morgan");
 const handlebars = require("express-handlebars");
 const route = require("./routes");
 const db = require("./config/db")
+var methodOverride = require('method-override')
+
 db.connect();
 
 const app = express();
 const port = 3000;
 
 
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan("combined"));
