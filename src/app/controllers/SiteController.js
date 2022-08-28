@@ -40,7 +40,7 @@ class SiteController {
       .catch(next);
   }
 
-  // [PUT] edit
+  // [GET] edit
   editView(req, res, next) {
     Phone.findOne({ name: req.params.name })
       .then((phone) =>
@@ -51,6 +51,14 @@ class SiteController {
   // [PUT] edit
   update(req, res, next) {
     Phone.updateOne({ name: req.params.name }, req.body)
+      .then(() => res.redirect("/"))
+      .catch(next)
+
+  }
+  
+  // [DELETE] delete
+  delete(req, res, next) {
+    Phone.deleteOne({ name: req.params.name })
       .then(() => res.redirect("/"))
       .catch(next)
 
